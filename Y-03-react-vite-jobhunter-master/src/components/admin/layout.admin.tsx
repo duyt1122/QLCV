@@ -10,6 +10,7 @@ import {
     AliwangwangOutlined,
     BugOutlined,
     ScheduleOutlined,
+    ThunderboltFilled,
 } from '@ant-design/icons';
 import { Layout, Menu, Dropdown, Space, message, Avatar, Button } from 'antd';
 import { Outlet, useLocation, useNavigate } from "react-router-dom";
@@ -165,15 +166,21 @@ const LayoutAdmin = () => {
                         theme='light'
                         collapsible
                         collapsed={collapsed}
-                        onCollapse={(value) => setCollapsed(value)}>
-                        <div style={{ height: 32, margin: 16, textAlign: 'center' }}>
-                            <BugOutlined />  ADMIN
+                        onCollapse={(value) => setCollapsed(value)}
+                        style={{ borderRight: '1px solid #f1f5f9' }}
+                    >
+                        <div style={{ height: 64, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10, borderBottom: '1px solid #f1f5f9', cursor: 'pointer' }} onClick={() => navigate('/admin')}>
+                            <div style={{ width: 32, height: 32, borderRadius: 8, background: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 18 }}>
+                                <ThunderboltFilled />
+                            </div>
+                            {!collapsed && <span style={{ fontWeight: 800, fontSize: 16, color: '#0f172a', letterSpacing: -0.3 }}>Dev<span style={{ color: '#4f46e5' }}>Hire</span> Admin</span>}
                         </div>
                         <Menu
                             selectedKeys={[activeMenu]}
                             mode="inline"
                             items={menuItems}
                             onClick={(e) => setActiveMenu(e.key)}
+                            style={{ borderRight: 'none', marginTop: 8 }}
                         />
                     </Sider>
                     :
@@ -185,35 +192,31 @@ const LayoutAdmin = () => {
                     />
                 }
 
-                <Layout>
+                <Layout style={{ background: '#f8fafc' }}>
                     {!isMobile &&
-                        <div className='admin-header' style={{ display: "flex", justifyContent: "space-between", marginRight: 20 }}>
+                        <div className='admin-header' style={{ display: "flex", justifyContent: "space-between", alignItems: 'center', padding: '0 24px', height: 64, background: '#ffffff', borderBottom: '1px solid #e2e8f0' }}>
                             <Button
                                 type="text"
                                 icon={collapsed ? React.createElement(MenuUnfoldOutlined) : React.createElement(MenuFoldOutlined)}
                                 onClick={() => setCollapsed(!collapsed)}
                                 style={{
                                     fontSize: '16px',
-                                    width: 64,
-                                    height: 64,
+                                    width: 40,
+                                    height: 40,
                                 }}
                             />
 
                             <Dropdown menu={{ items: itemsDropdown }} trigger={['click']}>
-                                <Space style={{ cursor: "pointer" }}>
-                                    Welcome {user?.name}
-                                    <Avatar> {user?.name?.substring(0, 2)?.toUpperCase()} </Avatar>
-
+                                <Space style={{ cursor: "pointer", background: '#f8fafc', padding: '4px 14px 4px 6px', borderRadius: 9999, border: '1px solid #e2e8f0' }}>
+                                    <Avatar style={{ backgroundColor: '#4f46e5' }}> {user?.name?.substring(0, 2)?.toUpperCase()} </Avatar>
+                                    <span style={{ fontWeight: 600, color: '#1e293b', fontSize: 13.5 }}>{user?.name}</span>
                                 </Space>
                             </Dropdown>
                         </div>
                     }
-                    <Content style={{ padding: '15px' }}>
+                    <Content style={{ padding: '24px' }}>
                         <Outlet />
                     </Content>
-                    {/* <Footer style={{ padding: 10, textAlign: 'center' }}>
-                        React Typescript series Nest.JS &copy; Hỏi Dân IT - Made with <HeartTwoTone />
-                    </Footer> */}
                 </Layout>
             </Layout>
 

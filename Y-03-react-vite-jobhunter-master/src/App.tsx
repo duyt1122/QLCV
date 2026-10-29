@@ -6,6 +6,7 @@ import {
   useLocation,
 } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { ConfigProvider } from 'antd';
 import NotFound from 'components/share/not.found';
 import Loading from 'components/share/loading';
 import LoginPage from 'pages/auth/login';
@@ -159,8 +160,46 @@ export default function App() {
   ]);
 
   return (
-    <>
+    <ConfigProvider
+      theme={{
+        token: {
+          colorPrimary: '#4f46e5',
+          colorInfo: '#0ea5e9',
+          colorSuccess: '#10b981',
+          colorWarning: '#f59e0b',
+          colorError: '#ef4444',
+          borderRadius: 10,
+          fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+        },
+        components: {
+          Button: {
+            controlHeight: 40,
+            borderRadius: 8,
+            fontWeight: 600,
+          },
+          Card: {
+            borderRadiusLG: 14,
+          },
+          Input: {
+            controlHeight: 40,
+            borderRadius: 8,
+          },
+          Select: {
+            controlHeight: 40,
+            borderRadius: 8,
+          },
+          Table: {
+            borderRadius: 10,
+            headerBg: '#f8fafc',
+            headerColor: '#1e293b',
+          },
+          Menu: {
+            itemBorderRadius: 8,
+          }
+        }
+      }}
+    >
       <RouterProvider router={router} />
-    </>
+    </ConfigProvider>
   )
 }

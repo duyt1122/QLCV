@@ -38,7 +38,7 @@ const ApplyModal = (props: IProps) => {
             if (jobDetail) {
                 const res = await callCreateResume(urlCV, jobDetail?.id, user.email, user.id);
                 if (res.data) {
-                    message.success("Rải CV thành công!");
+                    message.success("Nộp hồ sơ ứng tuyển thành công!");
                     setIsModalOpen(false);
                 } else {
                     notification.error({
@@ -72,9 +72,9 @@ const ApplyModal = (props: IProps) => {
                 // console.log(info.file, info.fileList);
             }
             if (info.file.status === 'done') {
-                message.success(`${info.file.name} file uploaded successfully`);
+                message.success(`${info.file.name} tải lên thành công`);
             } else if (info.file.status === 'error') {
-                message.error(info?.file?.error?.event?.message ?? "Đã có lỗi xảy ra khi upload file.")
+                message.error(info?.file?.error?.event?.message ?? "Đã có lỗi xảy ra khi tải tệp lên.")
             }
         },
     };
@@ -82,12 +82,12 @@ const ApplyModal = (props: IProps) => {
 
     return (
         <>
-            <Modal title="Ứng Tuyển Job"
+            <Modal title="Ứng Tuyển Vị Trí Công Nghệ"
                 open={isModalOpen}
                 onOk={() => handleOkButton()}
                 onCancel={() => setIsModalOpen(false)}
                 maskClosable={false}
-                okText={isAuthenticated ? "Rải CV Nào " : "Đăng Nhập Nhanh"}
+                okText={isAuthenticated ? "Nộp Hồ Sơ Ngay" : "Đăng Nhập Để Ứng Tuyển"}
                 cancelButtonProps={
                     { style: { display: "none" } }
                 }
@@ -104,8 +104,8 @@ const ApplyModal = (props: IProps) => {
                             >
                                 <Row gutter={[10, 10]}>
                                     <Col span={24}>
-                                        <div>
-                                            Bạn đang ứng tuyển công việc <b>{jobDetail?.name} </b>tại  <b>{jobDetail?.company?.name}</b>
+                                        <div style={{ fontSize: 15, marginBottom: 8 }}>
+                                            Bạn đang ứng tuyển vị trí: <strong style={{ color: '#4f46e5' }}>{jobDetail?.name}</strong> tại <strong>{jobDetail?.company?.name}</strong>
                                         </div>
                                     </Col>
                                     <Col span={24}>
@@ -113,7 +113,7 @@ const ApplyModal = (props: IProps) => {
                                             fieldProps={{
                                                 type: "email"
                                             }}
-                                            label="Email"
+                                            label="Email Ứng Viên"
                                             name={"email"}
                                             labelAlign="right"
                                             disabled
@@ -122,12 +122,12 @@ const ApplyModal = (props: IProps) => {
                                     </Col>
                                     <Col span={24}>
                                         <ProForm.Item
-                                            label={"Upload file CV"}
-                                            rules={[{ required: true, message: 'Vui lòng upload file!' }]}
+                                            label={"Tệp Hồ Sơ (CV)"}
+                                            rules={[{ required: true, message: 'Vui lòng tải lên file CV của bạn!' }]}
                                         >
 
                                             <Upload {...propsUpload}>
-                                                <Button icon={<UploadOutlined />}>Tải lên CV của bạn ( Hỗ trợ *.doc, *.docx, *.pdf, and &lt; 5MB )</Button>
+                                                <Button icon={<UploadOutlined />}>Tải lên CV (Hỗ trợ *.pdf, *.doc, *.docx &lt; 5MB)</Button>
                                             </Upload>
                                         </ProForm.Item>
                                     </Col>
@@ -137,8 +137,8 @@ const ApplyModal = (props: IProps) => {
                         </ConfigProvider>
                     </div>
                     :
-                    <div>
-                        Bạn chưa đăng nhập hệ thống. Vui lòng đăng nhập để có thể "Rải CV" bạn nhé -.-
+                    <div style={{ padding: '16px 0', fontSize: 14, color: '#475569' }}>
+                        Bạn chưa đăng nhập hệ thống DevHire. Vui lòng đăng nhập để hoàn tất nộp hồ sơ ứng tuyển trực tiếp đến nhà tuyển dụng.
                     </div>
                 }
                 <Divider />

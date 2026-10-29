@@ -32,7 +32,7 @@ public class Resume {
 	private ResumeStateEnum status;
 
 	private Instant createdAt;
-	private Instant updaedAt;
+	private Instant updatedAt;
 
 	private String createdBy;
 	private String updateBy;
@@ -54,7 +54,7 @@ public class Resume {
 	@PreUpdate
 	public void handleBeforeUpdate() {
 		this.updateBy = SecurityUtil.getCurrentUserLogin().isPresent() ? SecurityUtil.getCurrentUserLogin().get() : "";
-		this.updaedAt = Instant.now();
+		this.updatedAt = Instant.now();
 	}
 
 	public long getId() {
@@ -98,11 +98,11 @@ public class Resume {
 	}
 
 	public Instant getUpdaedAt() {
-		return updaedAt;
+		return updatedAt;
 	}
 
 	public void setUpdaedAt(Instant updaedAt) {
-		this.updaedAt = updaedAt;
+		this.updatedAt = updaedAt;
 	}
 
 	public String getCreatedBy() {

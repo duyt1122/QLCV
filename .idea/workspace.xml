@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a0260360-485e-4425-906b-0b84829feb22" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Y-01-java-spring-jobhunter-starter-master/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Y-01-java-spring-jobhunter-starter-master/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/admin/layout.admin.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/admin/layout.admin.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/card/company.card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/card/company.card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/card/job.card.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/card/job.card.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/footer.client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/footer.client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/header.client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/header.client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/modal/apply.modal.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/modal/apply.modal.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/search.client.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/components/client/search.client.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/main.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/admin/dashboard.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/admin/dashboard.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/auth/login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/auth/login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/auth/register.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/auth/register.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/company/detail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/company/detail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/company/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/company/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/home/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/home/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/job/detail.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/job/detail.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/job/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/pages/job/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/styles/auth.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/styles/auth.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/styles/client.module.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/styles/client.module.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/styles/reset.scss" beforeDir="false" afterPath="$PROJECT_DIR$/Y-03-react-vite-jobhunter-master/src/styles/reset.scss" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="3LKTAnfu34jutQ8U8OpeNAnAp17" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "updatefont",
+    "last_opened_file_path": "D:/QL_CV"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a0260360-485e-4425-906b-0b84829feb22" name="Changes" comment="" />
+      <created>1793201618999</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1793201618999</updated>
+    </task>
+    <servers />
+  </component>
+</project>

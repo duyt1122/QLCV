@@ -1,3 +1,52 @@
+:root {
+    --primary-color: #4f46e5;
+    --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    --primary-hover: #4338ca;
+    --bg-main: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --border-color: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+    background: rgba(79, 70, 229, 0.2);
+    color: #4f46e5;
+}
+
+/* Modern Smooth Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 9999px;
+    transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
 .ant-pro-footer-bar {
     z-index: 1000;
     background-color: white;
@@ -16,9 +65,7 @@
     &.close {
         transform: scale(0);
         opacity: 0;
-        -webkit-transition: all .1s linear;
-        -o-transition: all .25s linear;
-        transition: all .25s linear;
+        transition: all .25s cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
 
@@ -26,12 +73,6 @@
     &.close {
         .ant-modal-mask {
             background-color: unset !important;
-            // -webkit-transition: background-color 0.3s ease-in;
-            // /* Safari */
-            // transition: background-color 0s linear;
-            // -webkit-transition-delay: 0.3s;
-            // /* Safari */
-            // transition-delay: 0.2s;
         }
     }
 }
