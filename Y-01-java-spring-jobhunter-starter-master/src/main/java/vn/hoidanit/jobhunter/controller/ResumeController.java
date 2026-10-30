@@ -121,12 +121,13 @@ public class ResumeController {
 				}
 			}
 		}
+		// Lọc Resume
 		Specification<Resume> jobInSpec = filterSpecificationConverter
 				.convert(filterBuilder.field("job").in(filterBuilder.input(arrJobIds)).get());
 
 		Specification<Resume> finalSpec = jobInSpec.and(spec);
 
-		return ResponseEntity.ok().body(this.resumeService.fetchAllResume(spec, pageable));
+		return ResponseEntity.ok().body(this.resumeService.fetchAllResume(finalSpec, pageable));
 	}
 
 	@PostMapping("/resumes/by-user")

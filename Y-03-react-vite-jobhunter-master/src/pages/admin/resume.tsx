@@ -186,8 +186,8 @@ const ResumePage = () => {
             sortBy = sort.updatedAt === 'ascend' ? "sort=updatedAt,asc" : "sort=updatedAt,desc";
         }
 
-        //mặc định sort theo updatedAt
-        if (Object.keys(sortBy).length === 0) {
+        //mặc định sort theo updatedAt 
+        if (!sortBy) {
             temp = `${temp}&sort=updatedAt,desc`;
         } else {
             temp = `${temp}&${sortBy}`;
