@@ -1,12 +1,12 @@
 import { useAppSelector } from "@/redux/hooks";
-import { IJob } from "@/types/backend";
+import { IJob, IResumeAiMatch } from "@/types/backend";
 import { ProForm, ProFormText } from "@ant-design/pro-components";
 import { Button, Col, ConfigProvider, Divider, Modal, Row, Upload, message, notification } from "antd";
 import { useNavigate } from "react-router-dom";
 import enUS from 'antd/lib/locale/en_US';
 import { UploadOutlined } from '@ant-design/icons';
 import type { UploadProps } from 'antd';
-import { callCreateResume, callUploadSingleFile } from "@/config/api";
+import { callAnalyzeResumeMatch, callCreateResume, callUploadSingleFile } from "@/config/api";
 import { useState } from 'react';
 
 interface IProps {
@@ -20,8 +20,26 @@ const ApplyModal = (props: IProps) => {
     const isAuthenticated = useAppSelector(state => state.account.isAuthenticated);
     const user = useAppSelector(state => state.account.user);
     const [urlCV, setUrlCV] = useState<string>("");
+    const [aiAnalysis, setAiAnalysis] = useState<IResumeAiMatch | null>(null);
+    const [isAnalyzing, setIsAnalyzing] = useState<boolean>(false);
 
     const navigate = useNavigate();
+
+    const handleAnalyzeCv = async (fileName: string) => {
+        if (!jobDetail?.id || !fileName) return;
+        setIsAnalyzing(true);
+        try {
+            const res = await callAnalyzeResumeMatch(fileName, jobDetail.id);
+            if (res.data) {
+                setAiAnalysis(res.data);
+            }
+        } catch (error: any) {
+            setAiAnalysis(null);
+            message.warning(error?.response?.data?.message ?? "Không thể đánh giá CV bằng AI lúc này.");
+        } finally {
+            setIsAnalyzing(false);
+        }
+    }
 
     const handleOkButton = async () => {
         if (!urlCV && isAuthenticated) {
@@ -40,6 +58,8 @@ const ApplyModal = (props: IProps) => {
                 if (res.data) {
                     message.success("Nộp hồ sơ ứng tuyển thành công!");
                     setIsModalOpen(false);
+                    setAiAnalysis(null);
+                    setUrlCV("");
                 } else {
                     notification.error({
                         message: 'Có lỗi xảy ra',
@@ -57,7 +77,11 @@ const ApplyModal = (props: IProps) => {
         async customRequest({ file, onSuccess, onError }: any) {
             const res = await callUploadSingleFile(file, "resume");
             if (res && res.data) {
-                setUrlCV(res.data.fileName);
+                const fileName = res.data.fileName;
+                setUrlCV(fileName);
+                if (jobDetail?.id) {
+                    await handleAnalyzeCv(fileName);
+                }
                 if (onSuccess) onSuccess('ok')
             } else {
                 if (onError) {
@@ -85,7 +109,11 @@ const ApplyModal = (props: IProps) => {
             <Modal title="Ứng Tuyển Vị Trí Công Nghệ"
                 open={isModalOpen}
                 onOk={() => handleOkButton()}
-                onCancel={() => setIsModalOpen(false)}
+                onCancel={() => {
+                    setIsModalOpen(false);
+                    setAiAnalysis(null);
+                    setUrlCV("");
+                }}
                 maskClosable={false}
                 okText={isAuthenticated ? "Nộp Hồ Sơ Ngay" : "Đăng Nhập Để Ứng Tuyển"}
                 cancelButtonProps={
@@ -131,6 +159,35 @@ const ApplyModal = (props: IProps) => {
                                             </Upload>
                                         </ProForm.Item>
                                     </Col>
+                                    {isAnalyzing && (
+                                        <Col span={24}>
+                                            <div style={{ padding: '10px 12px', background: '#f5f3ff', borderRadius: 8, color: '#4f46e5', fontWeight: 600 }}>
+                                                AI đang chấm điểm mức độ phù hợp của CV...
+                                            </div>
+                                        </Col>
+                                    )}
+                                    {aiAnalysis && (
+                                        <Col span={24}>
+                                            <div style={{ background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: 10, padding: 12 }}>
+                                                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+                                                    <strong>AI đánh giá CV</strong>
+                                                    <span style={{ background: aiAnalysis.matchScore >= 80 ? '#dcfce7' : aiAnalysis.matchScore >= 60 ? '#fef3c7' : '#fee2e2', color: aiAnalysis.matchScore >= 80 ? '#166534' : aiAnalysis.matchScore >= 60 ? '#92400e' : '#991b1b', padding: '4px 10px', borderRadius: 999, fontWeight: 700 }}>
+                                                        {aiAnalysis.matchScore}%
+                                                    </span>
+                                                </div>
+                                                <div style={{ marginBottom: 8, color: '#334155' }}>{aiAnalysis.summary}</div>
+                                                <div style={{ marginBottom: 6 }}><strong>Kỹ năng phù hợp:</strong> {aiAnalysis.matchedSkills.length ? aiAnalysis.matchedSkills.join(', ') : 'Chưa rõ'}</div>
+                                                <div style={{ marginBottom: 6 }}><strong>Cần bổ sung:</strong> {aiAnalysis.missingSkills.length ? aiAnalysis.missingSkills.join(', ') : 'Không có'}</div>
+                                                <div><strong>Gợi ý cải thiện:</strong>
+                                                    <ul style={{ margin: '8px 0 0 20px', padding: 0 }}>
+                                                        {aiAnalysis.suggestions.map((item, idx) => (
+                                                            <li key={idx}>{item}</li>
+                                                        ))}
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </Col>
+                                    )}
                                 </Row>
 
                             </ProForm>

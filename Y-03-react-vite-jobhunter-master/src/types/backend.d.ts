@@ -138,6 +138,17 @@ export interface IResume {
     updatedAt?: string;
 }
 
+export interface IResumeAiMatch {
+    jobId?: string | number;
+    jobName?: string;
+    companyName?: string;
+    matchScore: number;
+    matchedSkills: string[];
+    missingSkills: string[];
+    summary: string;
+    suggestions: string[];
+}
+
 export interface IPermission {
     id?: string;
     name?: string;

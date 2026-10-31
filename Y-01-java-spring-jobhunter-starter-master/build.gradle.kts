@@ -5,7 +5,7 @@ plugins {
 	 id("io.freefair.lombok") version "8.6"
 }
 
-group = "vn.hoidanit"
+group = "vn.topcv"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -26,6 +26,8 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-mail")
 	implementation("org.thymeleaf.extras:thymeleaf-extras-springsecurity6")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
+	implementation("org.apache.tika:tika-core:2.9.2")
+	implementation("org.apache.tika:tika-parsers-standard-package:2.9.2")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	implementation("com.turkraft.springfilter:jpa:3.1.7")
 	runtimeOnly("com.mysql:mysql-connector-j")
