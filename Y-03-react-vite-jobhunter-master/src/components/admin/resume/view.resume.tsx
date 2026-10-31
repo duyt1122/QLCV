@@ -12,6 +12,11 @@ interface IProps {
     setDataInit: (v: any) => void;
     reloadTable: () => void;
 }
+const buildCvUrl = (fileName?: string) => {
+    if (!fileName) return "";
+    return `http://localhost:8080/storage/resume/${fileName}`;
+};
+
 const ViewDetailResume = (props: IProps) => {
     const [isSubmit, setIsSubmit] = useState<boolean>(false);
     const { onClose, open, dataInit, setDataInit, reloadTable } = props;
@@ -91,6 +96,15 @@ const ViewDetailResume = (props: IProps) => {
                     </Descriptions.Item>
                     <Descriptions.Item label="Tên Công Ty">
                         {dataInit?.companyName}
+                    </Descriptions.Item>
+                    <Descriptions.Item label="CV / URL" span={2}>
+                        {dataInit?.url ? (
+                            <a href={buildCvUrl(dataInit.url)} target="_blank" rel="noopener noreferrer">
+                                {buildCvUrl(dataInit.url)}
+                            </a>
+                        ) : (
+                            '—'
+                        )}
                     </Descriptions.Item>
                     <Descriptions.Item label="Ngày tạo">{dataInit && dataInit.createdAt ? dayjs(dataInit.createdAt).format('DD-MM-YYYY HH:mm:ss') : ""}</Descriptions.Item>
                     <Descriptions.Item label="Ngày sửa">{dataInit && dataInit.updatedAt ? dayjs(dataInit.updatedAt).format('DD-MM-YYYY HH:mm:ss') : ""}</Descriptions.Item>

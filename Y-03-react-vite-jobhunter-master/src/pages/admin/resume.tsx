@@ -14,6 +14,11 @@ import Access from "@/components/share/access";
 import { sfIn } from "spring-filter-query-builder";
 import { EditOutlined } from "@ant-design/icons";
 
+const buildCvUrl = (fileName?: string) => {
+    if (!fileName) return "";
+    return `http://localhost:8080/storage/resume/${fileName}`;
+};
+
 const ResumePage = () => {
     const tableRef = useRef<ActionType>();
 
@@ -90,6 +95,26 @@ const ResumePage = () => {
             title: 'Company',
             dataIndex: "companyName",
             hideInSearch: true,
+        },
+        {
+            title: 'CV',
+            dataIndex: 'url',
+            width: 220,
+            hideInSearch: true,
+            render: (text) => {
+                const cvUrl = typeof text === 'string' ? buildCvUrl(text) : '';
+                if (!cvUrl) return <span>—</span>;
+                return (
+                    <a
+                        href={cvUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ wordBreak: 'break-all' }}
+                    >
+                        Xem CV
+                    </a>
+                )
+            }
         },
 
         {
