@@ -12,6 +12,7 @@ public class ResFetchResumeDTO {
 	private String url;
 	@Enumerated(EnumType.STRING)
 	private ResumeStateEnum status;
+	private Integer matchScore;
 	private Instant createdAt;
 
 	private String companyName;
@@ -75,6 +76,14 @@ public class ResFetchResumeDTO {
 
 	public void setStatus(ResumeStateEnum status) {
 		this.status = status;
+	}
+
+	public Integer getMatchScore() {
+		return matchScore;
+	}
+
+	public void setMatchScore(Integer matchScore) {
+		this.matchScore = matchScore;
 	}
 
 	public Instant getCreatedAt() {

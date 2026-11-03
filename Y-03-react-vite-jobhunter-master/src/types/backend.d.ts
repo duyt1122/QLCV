@@ -117,6 +117,7 @@ export interface IResume {
     userId: string;
     url: string;
     status: string;
+    matchScore?: number;
     companyId: string | {
         id: string;
         name: string;

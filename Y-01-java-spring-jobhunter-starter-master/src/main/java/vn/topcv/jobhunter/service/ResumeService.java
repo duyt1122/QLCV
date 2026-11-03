@@ -56,6 +56,9 @@ public class ResumeService {
 	}
 
 	public ResCreateResumeDTO create(Resume resume) {
+		if (resume.getMatchScore() == null) {
+			resume.setMatchScore(0);
+		}
 		resume = this.resumRepository.save(resume);
 
 		ResCreateResumeDTO res = new ResCreateResumeDTO();
@@ -94,6 +97,9 @@ public class ResumeService {
 	}
 
 	public ResUpdateResumeDTO update(Resume resume) {
+		if (resume.getMatchScore() == null) {
+			resume.setMatchScore(0);
+		}
 		resume = this.resumRepository.save(resume);
 
 		ResUpdateResumeDTO dto = new ResUpdateResumeDTO();
@@ -115,6 +121,7 @@ public class ResumeService {
 		dto.setEmail(resume.getEmail());
 		dto.setUrl(resume.getUrl());
 		dto.setStatus(resume.getStatus());
+		dto.setMatchScore(resume.getMatchScore());
 		dto.setCreatedAt(resume.getCreatedAt());
 		dto.setCreatedBy(resume.getCreatedBy());
 		dto.setUpdatedAt(resume.getUpdaedAt());

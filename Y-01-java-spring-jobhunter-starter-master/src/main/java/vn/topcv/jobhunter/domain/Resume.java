@@ -31,6 +31,8 @@ public class Resume {
 	@Enumerated(EnumType.STRING)
 	private ResumeStateEnum status;
 
+	private Integer matchScore;
+
 	private Instant createdAt;
 	private Instant updatedAt;
 
@@ -87,6 +89,14 @@ public class Resume {
 
 	public void setStatus(ResumeStateEnum status) {
 		this.status = status;
+	}
+
+	public Integer getMatchScore() {
+		return matchScore;
+	}
+
+	public void setMatchScore(Integer matchScore) {
+		this.matchScore = matchScore;
 	}
 
 	public Instant getCreatedAt() {

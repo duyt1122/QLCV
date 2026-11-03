@@ -97,6 +97,25 @@ const ResumePage = () => {
             hideInSearch: true,
         },
         {
+            title: 'Độ phù hợp',
+            dataIndex: 'matchScore',
+            width: 120,
+            sorter: true,
+            hideInSearch: true,
+            render: (value) => {
+                const score = Number(value ?? 0);
+                return (
+                    <span style={{
+                        padding: '4px 8px',
+                        borderRadius: 999,
+                        background: score >= 80 ? '#dcfce7' : score >= 60 ? '#fef3c7' : '#fee2e2',
+                        color: score >= 80 ? '#166534' : score >= 60 ? '#92400e' : '#991b1b',
+                        fontWeight: 700
+                    }}>{score}%</span>
+                )
+            }
+        },
+        {
             title: 'CV',
             dataIndex: 'url',
             width: 220,

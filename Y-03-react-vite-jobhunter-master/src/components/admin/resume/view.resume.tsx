@@ -69,6 +69,15 @@ const ViewDetailResume = (props: IProps) => {
             >
                 <Descriptions title="" bordered column={2} layout="vertical">
                     <Descriptions.Item label="Email">{dataInit?.email}</Descriptions.Item>
+                    <Descriptions.Item label="Độ phù hợp">
+                        <span style={{
+                            padding: '4px 10px',
+                            borderRadius: 999,
+                            fontWeight: 700,
+                            background: Number(dataInit?.matchScore ?? 0) >= 80 ? '#dcfce7' : Number(dataInit?.matchScore ?? 0) >= 60 ? '#fef3c7' : '#fee2e2',
+                            color: Number(dataInit?.matchScore ?? 0) >= 80 ? '#166534' : Number(dataInit?.matchScore ?? 0) >= 60 ? '#92400e' : '#991b1b'
+                        }}>{Number(dataInit?.matchScore ?? 0)}%</span>
+                    </Descriptions.Item>
                     <Descriptions.Item label="Trạng thái">
                         <Form
                             form={form}

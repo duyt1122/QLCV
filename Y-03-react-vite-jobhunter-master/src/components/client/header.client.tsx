@@ -122,6 +122,7 @@ const Header = (props: any) => {
                             {/* Navigation Menu */}
                             <div className={styles['top-menu']}>
                                 <Menu
+                                    theme="dark"
                                     onClick={onClick}
                                     selectedKeys={[current]}
                                     mode="horizontal"
@@ -180,6 +181,7 @@ const Header = (props: any) => {
                 open={openMobileMenu}
             >
                 <Menu
+                    theme="dark"
                     onClick={onClick}
                     selectedKeys={[current]}
                     mode="vertical"

@@ -54,7 +54,7 @@ const ApplyModal = (props: IProps) => {
         else {
             //todo
             if (jobDetail) {
-                const res = await callCreateResume(urlCV, jobDetail?.id, user.email, user.id);
+                const res = await callCreateResume(urlCV, jobDetail?.id, user.email, user.id, aiAnalysis?.matchScore ?? 0);
                 if (res.data) {
                     message.success("Nộp hồ sơ ứng tuyển thành công!");
                     setIsModalOpen(false);

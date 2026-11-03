@@ -140,10 +140,11 @@ export const callFetchJobById = (id: string) => {
  * 
 Module Resume
  */
-export const callCreateResume = (url: string, jobId: any, email: string, userId: string | number) => {
+export const callCreateResume = (url: string, jobId: any, email: string, userId: string | number, matchScore?: number) => {
     return axios.post<IBackendRes<IResume>>('/api/v1/resumes', {
         email, url,
         status: "PENDING",
+        matchScore: matchScore ?? 0,
         user: {
             "id": userId
         },
